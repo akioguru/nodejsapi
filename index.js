@@ -3,11 +3,16 @@ const express = require("express");
 const app = express();
 const fs = require('fs')
   
+// Parse URL-encoded bodies (as sent by HTML forms)
+app.use(express.urlencoded());
+
+// Parse JSON bodies (as sent by API clients)
+app.use(express.json());
 // Define routes here ...
 app.post('/', function(req, res){
     const fs = require('fs')
-    console.log(req)
-	const content = 'Some content!'
+    console.log(req.body.plain)
+	const content = req.body.plain;
 
 	try {
 	    fs.appendFileSync('test.txt', content+"\n")
