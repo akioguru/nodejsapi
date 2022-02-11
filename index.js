@@ -20,7 +20,7 @@ app.post('/', function(req, res){
 	} catch (err) {
         console.error(err)
     }
-    res.send("Addition - " + result);
+    res.send("res");
 })
 
   
